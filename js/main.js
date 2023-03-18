@@ -8,4 +8,26 @@ function randomNumberFromInterval(min, max) {
 
 const isStringFitInLength = (string, maxLength) => string.length <= maxLength;
 
-console.log(randomNumberFromInterval(1.2, 1.3));
+
+function generateData() {
+  let result = [];
+  let descriptions = [
+    'круто',
+    'классно',
+    'норм',
+    'нормас',
+    'прикольно'
+  ]
+
+  for (let i = 1; i <= 25; i++) {
+    result.push({
+      id: i,
+      url: `photos/${i}.jpg`,
+      description: descriptions[randomNumberFromInterval(0, descriptions.length - 1)],
+      likes: randomNumberFromInterval(15, 200),
+      comments: randomNumberFromInterval(0, 200)
+    })
+  }
+
+  return result;
+}
