@@ -1,12 +1,33 @@
 function randomNumberFromInterval(min, max) {
-  if (min < 0) {
-    throw RangeError("'min' should be greater than or equal to 0")
-  } else if (max <= min) {
-    throw RangeError("'max' should be strictly greater than 'min'")
-  }
-
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
+  const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
 }
 
 
 const isStringFitInLength = (string, maxLength) => string.length <= maxLength;
+
+
+function generateData() {
+  let result = [];
+  let descriptions = [
+    'круто',
+    'классно',
+    'норм',
+    'нормас',
+    'прикольно'
+  ]
+
+  for (let i = 1; i <= 25; i++) {
+    result.push({
+      id: i,
+      url: `photos/${i}.jpg`,
+      description: descriptions[randomNumberFromInterval(0, descriptions.length - 1)],
+      likes: randomNumberFromInterval(15, 200),
+      comments: randomNumberFromInterval(0, 200)
+    })
+  }
+
+  return result;
+}
