@@ -28,3 +28,5 @@ let showPictures = function (objects) {
 }
 
 export { showPictures }
+
+//Задание 7 часть 2
