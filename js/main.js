@@ -3,5 +3,6 @@ import { randomNumberFromInterval, isStringFitInLength } from './util.js'
 import { showPictures } from './pictures.js'
 import './uploadOverlay.js'
 import './changeScale.js'
+import './overlayEffect.js'
 
 showPictures(data);
