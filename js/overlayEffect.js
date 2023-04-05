@@ -1,5 +1,5 @@
 const imgElement = document.querySelector(".img-upload__preview");
-let oldEffect = 'effects__preview--none';
+let oldEffect = document.querySelector('#effect-none').value;
 const radios = document.querySelector('.img-upload__effects').querySelectorAll('input[name="effect"]');
 
 let applyEffect = function () {
