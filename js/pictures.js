@@ -1,6 +1,6 @@
 const pictureTemplate = document.querySelector('#picture');
 
-let generatePicturesFromObject = function (object) {
+const generatePicturesFromObject = function(object) {
   const picture = document.createElement('div');
   const pictureClone = pictureTemplate.content.cloneNode(true);
   picture.classList.add('picture');
@@ -16,17 +16,17 @@ let generatePicturesFromObject = function (object) {
   pictureLikes.textContent = object.likes;
 
   return picture;
-}
+};
 
 
-let showPictures = function (objects) {
+const showPictures = function(objects) {
   const fragment = new DocumentFragment();
   for (let i = 0; i < objects.length; i++) {
     fragment.append(generatePicturesFromObject(objects[i]));
   }
   document.querySelector('.pictures').append(fragment);
-}
+};
 
-export { showPictures }
+export {showPictures};
 
-//Задание 7 часть 2
+// Задание 7 часть 2

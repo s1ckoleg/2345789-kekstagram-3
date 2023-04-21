@@ -1,29 +1,31 @@
-const uploadFileInput = document.querySelector("#upload-file");
-const uploadOverlay = document.querySelector(".img-upload__overlay");
-const imgUploadForm = document.querySelector("#upload-select-image");
-const imgUploadCancelButton = document.querySelector("#upload-cancel")
+import {postData} from './api.js';
 
-uploadFileInput.addEventListener('change', function () {
-  uploadOverlay.classList.remove("hidden");
-})
+const uploadFileInput = document.querySelector('#upload-file');
+const uploadOverlay = document.querySelector('.img-upload__overlay');
+const imgUploadForm = document.querySelector('#upload-select-image');
+const imgUploadCancelButton = document.querySelector('#upload-cancel');
 
-let closeUploadOverlay = function () {
-  uploadOverlay.classList.add("hidden");
+uploadFileInput.addEventListener('change', function() {
+  uploadOverlay.classList.remove('hidden');
+});
+
+const closeUploadOverlay = function() {
+  uploadOverlay.classList.add('hidden');
   imgUploadForm.reset();
-}
+};
 
-imgUploadCancelButton.addEventListener('click', function () {
+imgUploadCancelButton.addEventListener('click', function() {
   closeUploadOverlay();
-})
+});
 
 document.addEventListener('keydown', function(evt) {
-  if (evt.key == "Escape") {
+  if (evt.key == 'Escape') {
     closeUploadOverlay();
   }
-})
+});
 
-imgUploadForm.addEventListener('submit', function (evt) {
+imgUploadForm.addEventListener('submit', function(evt) {
   evt.preventDefault();
-  imgUploadForm.submit();
+  postData(new FormData(evt.target), () => {}, () => {});
   closeUploadOverlay();
-})
+});
