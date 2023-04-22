@@ -17,6 +17,9 @@ const getData = function(onSuccess, onFail) {
 const postData = function(onSuccess, onFail, data) {
   fetch(API_POST_ENDPOINT, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
     data,
   }).then((response) => {
     if (response.ok) {

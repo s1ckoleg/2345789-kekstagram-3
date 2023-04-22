@@ -3,5 +3,13 @@ import {showPictures} from './pictures.js';
 import './uploadOverlay.js';
 import './changeScale.js';
 import './overlayEffect.js';
+import {getData} from './api.js';
 
-showPictures(data);
+getData(
+    (pictureInfo) => {
+      showPictures(pictureInfo);
+    },
+    () => {
+      showPictures(data);
+    },
+);
