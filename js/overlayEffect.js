@@ -20,3 +20,10 @@ radios.forEach((radio) => {
     applyEffect();
   });
 });
+
+const resetEffect = function() {
+  imgElement.classList.remove(oldEffect);
+  imgElement.classList.add('effects__preview--none');
+};
+
+export {resetEffect};
