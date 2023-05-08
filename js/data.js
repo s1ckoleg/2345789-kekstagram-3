@@ -1,22 +1,25 @@
-import {randomNumberFromInterval} from './util.js'
+import {randomNumberFromInterval} from './util.js';
 
-let data = [];
-let descriptions = [
+const data = [];
+const descriptions = [
   'круто',
   'классно',
   'норм',
   'нормас',
-  'прикольно'
-]
+  'прикольно',
+];
 
 for (let i = 1; i <= 25; i++) {
   data.push({
     id: i,
     url: `photos/${i}.jpg`,
-    description: descriptions[randomNumberFromInterval(0, descriptions.length - 1)],
+    description: descriptions[randomNumberFromInterval(
+        0,
+        descriptions.length - 1,
+    )],
     likes: randomNumberFromInterval(15, 200),
-    comments: randomNumberFromInterval(0, 200)
-  })
+    comments: randomNumberFromInterval(0, 200),
+  });
 }
 
 export {data};
